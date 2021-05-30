@@ -1,5 +1,6 @@
 import collections
 import datetime
+import random
 
 class Practise3:
 
@@ -11,6 +12,12 @@ class Practise3:
         print("4. Divisors")
         print("5. List Overlap")
         print("6. Palindrome")
+        print("7. List Comprehensions")
+        print("8. Rock Paper Scissors")
+        print("9. Guessing Game One")
+        print("10. List Overlap Comprehensions")
+        print("11. List Remove Duplicates")
+        print("12. Cows And Bulls")
         print("0. Exit")
         print("".center(50, "="))
 
@@ -43,16 +50,108 @@ class Practise3:
     def palindrome(self, my_str):
         return my_str == my_str[::-1]
 
+    # 7
+    def listComprehensions(self, a):
+        return " ".join(list([str(i) for i in a if i%2==0]))
 
+    # 8
+    def RockPaperScissors(self, my_choose):
+        items = ["rock", "paper", "scissors"]
+        computer_choose = random.choice(items)
+        while True:
+            if my_choose == computer_choose:
+                print(f"My choose: {my_choose}")
+                print(f"Computer choose: {computer_choose}")
+                print("==> You draw")
+            else:
+                if my_choose == "rock":
+                    if computer_choose == "paper":
+                        print(f"My choose: {my_choose}")
+                        print(f"Computer choose: {computer_choose}")
+                        print("==> You lose")
+                    else:
+                        print(f"My choose: {my_choose}")
+                        print(f"Computer choose: {computer_choose}")
+                        print("==> You win")
+                elif my_choose == "scissors":
+                    if computer_choose == "rock" :
+                        print(f"My choose: {my_choose}")
+                        print(f"Computer choose: {computer_choose}")
+                        print("==> You lose")
+                    else:
+                        print(f"My choose: {my_choose}")
+                        print(f"Computer choose: {computer_choose}")
+                        print("==> You win")
+                else:
+                    if computer_choose == "rock":
+                        print(f"My choose: {my_choose}")
+                        print(f"Computer choose: {computer_choose}")
+                        print("==> You lose")
+                    else:
+                        print(f"My choose: {my_choose}")
+                        print(f"Computer choose: {computer_choose}")
+                        print("==> You win")
 
+            computer_choose = random.choice(items)
+            print()
+            accept = input("You want to start a new game? (Y/N): ")
+            print()
+            if accept.lower() != "y":
+                break
+            else:
+                my_choose = input("What is your choose? ").lower()
 
+    # 9
+    def GuessingGameOne(self, my_number):
+        com_number = random.randint(1, 9)
+        if my_number == com_number:
+            return "You guessed exactly!"
+        while my_number != com_number:
+            if my_number < com_number:
+                print("You guessed to low")
+            else:
+                print("You guessed to high")
 
+            my_number = int(input("Enter your number: "))
+            if my_number == com_number:
+                return "You guessed exactly!"
 
+    # 10
+    def ListOverlapComprehensions(self, a, b):
+        return " ".join(list(dict.fromkeys([str(i) for i in a if i in b])))
+
+    # 11
+    def ListRemoveDuplicates(self, my_list):
+        return list(dict.fromkeys(my_list))
+
+    # 12
+    def CowsAndBulls(self, my_number):
+        count = 0                       # count the number of guesses
+        com_number = random.randint(1000, 9999)
+        print(com_number)
+        com_str = str(com_number)       # convert com_number => str
+
+        while True:
+            # if my number = computer number => you guessed correct
+            if my_number == com_number:
+                return "You guessed the correct number with {} times".format(count + 1)
+            else:
+                my_str = str(my_number)  # convert my_number => str
+                count_Cows = 0  # count cows
+                count_Bulls = 0  # count bulls
+                for i in range(len(my_str)):
+                    if my_str[i] == com_str[i]:
+                        count_Cows += 1
+                    else:
+                        count_Bulls += 1
+                count += 1
+                print("{} cows, {} bulls".format(count_Cows, count_Bulls))
+            my_number = int(input("Enter your number: "))
 
 if __name__=="__main__":
     p = Practise3()
     p.showMenu()
-    choose = int(input("==> Moi ban chon cong viec: "))
+    choose = int(input("Please choose a job: "))
     print()
     while choose != 0:
         if choose == 1:
@@ -97,7 +196,41 @@ if __name__=="__main__":
             else:
                 print("This word is not a palindrome")
 
+        if choose==7:
+            print("List Comprehensions".center(40, "-"))
+            a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+            print(p.listComprehensions(a))
+
+        if choose==8:
+            print("Rock Paper Scissors".center(40, "-"))
+            my_choose = input("What is your choose? ").lower()
+            p.RockPaperScissors(my_choose)
+
+        if choose==9:
+            print("Guessing Game One".center(40, "-"))
+            my_number = int(input("Enter your number: "))
+            print(p.GuessingGameOne(my_number))
+
+        if choose==10:
+            print("List Overlap Comprehensions".center(40, "-"))
+            # a = range(1, 10)                                 # Create a list containing values from 1 to 9
+            a = random.sample(range(1, 30), 12)                # https://www.w3schools.com/python/ref_random_sample.asp
+            b = [i for i in range(1, random.randint(1, 100))]
+            print("==> Your result: ", end="")
+            print(p.ListOverlapComprehensions(a, b))
+
+        if choose==11:
+            print("List Remove Duplicates".center(40, "-"))
+            # my_list = random.sample(range(1, 30), 10)
+            my_list = [1, 1, 2, 3, 5, 5, 8, 13, 13, 21, 34, 34, 55, 89]
+            print("My list: {}".format(my_list))
+            print("List Remove Duplicates: {}".format(p.ListRemoveDuplicates(my_list)))
+
+        if choose==12:
+            print("Cows And Bulls".center(40, "-"))
+            my_number = int(input("Enter your number: "))
+            print(p.CowsAndBulls(my_number))
+
+        choose = int(input("\nPlease choose a job: "))
         print()
-        choose = int(input("==> Moi ban chon cong viec: "))
-        print()
-    print("THOAT CHUONG TRINH".center(50, "="))
+    print("EXIT PROGRAM".center(50, "="))
