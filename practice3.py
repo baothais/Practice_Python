@@ -146,6 +146,8 @@ class Practise3:
                         count_Bulls += 1
                 count += 1
                 print("{} cows, {} bulls".format(count_Cows, count_Bulls))
+                if count == 6:
+                    return "You guessed 6 times"
             my_number = int(input("Enter your number: "))
 
 if __name__=="__main__":
