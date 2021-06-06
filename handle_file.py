@@ -101,8 +101,8 @@
 # #
 # # list_number1 = random.sample(range(1, 10), 5)
 # # list_number2 = random.sample(range(1, 1000), 7)
-# # with open("one.txt", "r") as f:
-# #     print(f.readlines())
+with open("file_txt/one.txt", "r") as f:
+    print(f.read().split("\n"))
 # # with open("two.txt", "r") as f:
 # #     for number in list_number2:
 # #         f.write(str(number))
@@ -250,59 +250,59 @@ import json
 # with open("demo5.json", "w") as f:
 #   json.dump(my_string, f)
 #
-with open("file_json/demo5.json", "r") as f:
-  # print(type(f))
-  data = json.load(f)
-  print(type(data))
-
-print(json.dumps(data))
-#
-# with open("demo5.txt", "w") as f:
-#   f.write(my_string)
-#
-# with open("demo5.txt", "r") as f:
-#   print(f)
-#   data = f.read()
+# with open("file_json/demo5.json", "r") as f:
+#   # print(type(f))
+#   data = json.load(f)
 #   print(type(data))
-
-# my_string = """[{
-#   "name": "Thai Bao",
-#   "age": 25,
-#   "sex": "Male"
-# },
-# {"name": "Thai Tits",
-#   "age": 1,
-#   "sex": "Male"
-# }]"""
 #
-# data = json.loads(my_string)
-# print(json.dumps(data, indent=2))
+# print(json.dumps(data))
+# #
+# # with open("demo5.txt", "w") as f:
+# #   f.write(my_string)
+# #
+# # with open("demo5.txt", "r") as f:
+# #   print(f)
+# #   data = f.read()
+# #   print(type(data))
 #
-# with open("demo6.json", "w") as f:
+# # my_string = """[{
+# #   "name": "Thai Bao",
+# #   "age": 25,
+# #   "sex": "Male"
+# # },
+# # {"name": "Thai Tits",
+# #   "age": 1,
+# #   "sex": "Male"
+# # }]"""
+# #
+# # data = json.loads(my_string)
+# # print(json.dumps(data, indent=2))
+# #
+# # with open("demo6.json", "w") as f:
+# #   json.dump(data, f, indent=2)
+# #
+# with open("file_json/demo6.json", "r") as f:
+#   new_data = json.load(f)
+#   print(type(new_data))
+#
+# print(json.dumps(new_data, indent=2))
+#
+# # my_str = "hello a Bao dep zai"
+# #
+# # with open("demo7.json", "w") as f:
+# #   json.dump(my_str, f)
+# #
+# # with open("demo7.json", "r") as f:
+# #   new_str = json.load(f)
+# #
+# # print(new_str)
+#
+# with open("file_txt/demo2.txt", "r") as f:
+#   data = f.read()
+#
+# print(type(data))
+# with open("file_json/demo2.json", "w") as f:
 #   json.dump(data, f, indent=2)
-#
-with open("file_json/demo6.json", "r") as f:
-  new_data = json.load(f)
-  print(type(new_data))
-
-print(json.dumps(new_data, indent=2))
-
-# my_str = "hello a Bao dep zai"
-#
-# with open("demo7.json", "w") as f:
-#   json.dump(my_str, f)
-#
-# with open("demo7.json", "r") as f:
-#   new_str = json.load(f)
-#
-# print(new_str)
-
-with open("file_txt/demo2.txt", "r") as f:
-  data = f.read()
-
-print(type(data))
-with open("file_json/demo2.json", "w") as f:
-  json.dump(data, f, indent=2)
 
 
 
