@@ -1,11 +1,11 @@
 import json
 
 def practice_json(data):
-    with open("Exercise1.json", "w") as f:
+    with open("file_json/Exercise1.json", "w") as f:
         json.dump(data, f, indent=2)
 
 def practice_json1():
-    with open("Exercise1.json", "r") as f:
+    with open("file_json/Exercise1.json", "r") as f:
         data = json.load(f)
     return data
 
@@ -37,7 +37,7 @@ def convert_class_to_json(p):
     return p.__dict__
 
 def convert_json_to_class():
-    with open("Exercise1.json", "r") as f:
+    with open("file_json/Exercise1.json", "r") as f:
         data = json.load(f)
     return data
 
